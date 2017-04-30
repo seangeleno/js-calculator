@@ -1,0 +1,8 @@
+.bootstrap:hover {
+	opacity: .5;
+}
+
+.mid {
+	margin: 0 auto;
+	width: 50%;
+}
