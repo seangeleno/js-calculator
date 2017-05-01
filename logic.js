@@ -81,20 +81,20 @@ for (var i = 0; i < buttonQuery.length; i++) {
                 result = Math.pow(firstNumber, secondNumber);
             }
 
-            secondNum.textContent = secondNumber;
-            resultDiv.textContent = result;
+            document.getElementById("second-number").textContent = secondNumber;
+            document.getElementById("result").textContent = result;
         }
 
         if (this.getAttribute("class").includes("clear")) {
             firstNumber = "",
-                secondNumber = "",
-                operator = "",
-                result = 0,
-                hasNumber = false, /* hasNumber goes from false, true, false*/
-                firstNumberComplete = false,
-                lockButtons = false;
-            firstNum.innerText = "", secondNum.innerText = "";
-            resultDiv.innerText = "";
+            secondNumber = "",
+            operator = "",
+            result = 0,
+            hasNumber = false, /* hasNumber goes from false, true, false*/
+            firstNumberComplete = false,
+            lockButtons = false;
+            document.getElementById("first-number").innerText = "", document.getElementById("second-number").innerText = "";
+            document.getElementById("result").innerText = "";
         }
 
     });
