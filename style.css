@@ -1,8 +1,19 @@
-.bootstrap:hover {
-	opacity: .5;
+.btn {
+	margin-bottom: 8px;
 }
 
-.mid {
-	margin: 0 auto;
-	width: 50%;
+.panel-body > .row {
+	position: relative;
+	right: 13px;
+}
+
+.panel-body {
+	padding: 38px;
+}
+
+.jumbotron > h2 {
+
+    padding-top: 5px;
+    padding-bottom: 41px;
+
 }
