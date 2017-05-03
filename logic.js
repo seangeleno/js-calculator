@@ -1,75 +1,72 @@
-// global variables and event listeners
-var firstNumberValue,
-    secondNumberValue,
-    operator = "",
-    result = 0,
-    hasNumber = false,
-    firstNumberComplete = false,
-    lockButtons = false,
-    calcButtons = document.querySelectorAll("button");
-for (var i = 0; i < calcButtons.length; i++) {
-    calcButtons[i].addEventListener("click", function() {
-        //document.querySelector("#result").innerText = this.innerText;
-        resultSelector = document.getElementById('result');
-        symbol = document.getElementById('symbol')
-        if (this.getAttribute("class").includes("number") && !lockButtons) {
-            hasNumber = true;
-            firstNumberValue = "";
-            // First number waits until user chooses operator for final value
-            if (firstNumberComplete !== true) {
-                var firstNumberSelector = document.querySelector('#first-number');
+(function calculator() {
+    var firstNumber = "",
+        secondNumber = "",
+        operator = "",
+        result = 0,
+        hasNumber = false,
+        firstNumberComplete = false,
+        lockButtons = false,
+        buttonQuery = document.getElementsByTagName("button");
 
-                firstNumberValue = this.getAttribute("value");
-                firstNumberSelector.innerText = firstNumberValue;
-                console.log(firstNumberValue)
-            } else {
-                
+    for (var i = 0; i < buttonQuery.length; i++) {
+        buttonQuery[i].addEventListener("click", function() {
+            if (this.getAttribute("class").includes("number") && !lockButtons) {
+                hasNumber = true;
+                console.log("you clicked a " + this.getAttribute("class") + " class");
+                if (firstNumberComplete === false) {
+                    firstNumber += this.getAttribute("value");
+                    console.log("First Number: " + firstNumber + " but is not done yet!");
+                    document.getElementById("first-number").innerText = firstNumber;
+                } else {
+                    secondNumber += this.getAttribute("value");
+                    console.log("Finally, Second Number: " + secondNumber);
+                    document.getElementById("second-number").textContent = secondNumber;
+                }
+            }
+            if (this.getAttribute("class").includes("operator") && hasNumber && !lockButtons) {
+                firstNumberComplete = true;
+                document.getElementById("first-number").innerText = firstNumber;
+                document.querySelector("#operator").innerText = this.innerText;
+                console.log('First Number is Complete', 'you clicked the operator ' + this.getAttribute("value") + ", next step is the second number.");
+                operator = this.getAttribute("value");
+            }
+            if (this.getAttribute("class").includes("equal") && !lockButtons) {
+                lockButtons = true;
+                firstNumber = parseInt(firstNumber);
+                secondNumber = parseInt(secondNumber);
 
-                secondNumberValue = this.getAttribute("value");
-                console.log(secondNumberValue);
-            }
-        }
+                if (operator.includes("plus")) {
+                    result = firstNumber + secondNumber;
+                }
+                if (operator.includes("minus")) {
+                    result = firstNumber - secondNumber;
+                }
+                if (operator.includes("times")) {
+                    result = firstNumber * secondNumber;
+                }
+                if (operator.includes("divide")) {
+                    result = firstNumber / secondNumber;
+                }
+                if (operator.includes("power")) {
+                    result = Math.pow(firstNumber, secondNumber);
+                }
 
-        // Operator logic goes here
-        if (this.getAttribute("class").includes("operator") && hasNumber & !lockButtons) {
-            firstNumberComplete = true;
-            symbol.innerText = this.getAttribute('value');
-        }
+                document.getElementById("second-number").textContent = secondNumber;
+                document.getElementById("result").textContent = result;
+            }
+            if (this.getAttribute("class").includes("clear")) {
 
-        // Equal Sign actually does math
-        if (this.getAttribute("class").includes("equal") && !lockButtons) {
-            lockButtons = true;
-            firstNumberValue = parseInt(firstNumberValue);
-            secondNumberValue = parseInt(secondNumberValue);
-
-            if (this.getAttribute("class").includes("plus")) {
-                result = firstNumberValue + secondNumberValue;
+                firstNumber = "",
+                    secondNumber = "",
+                    operator = "",
+                    result = 0,
+                    hasNumber = false, /* hasNumber goes from false, true, false*/
+                    firstNumberComplete = false,
+                    lockButtons = false,
+                    document.getElementById("first-number").innerText = "", document.getElementById("second-number").innerText = "";
+                    document.querySelector("#operator").innerText = "";
+                document.getElementById("result").innerText = "";
             }
-            if (this.getAttribute("class").includes("minus")) {
-                result = firstNumberValue - secondNumberValue;
-            }
-            if (this.getAttribute("class").includes("times")) {
-                result = firstNumberValue * secondNumberValue;
-            }
-            if (this.getAttribute("class").includes("divide")) {
-                result = firstNumberValue / secondNumberValue;
-            }
-            if (this.getAttribute("class").includes("power")) {
-                result = Math.pow(firstNumberValue, secondNumberValue);
-            }
-
-            document.querySelector('#second-number').textContent = secondNumberValue;
-            resultSelector.textContent = result;
-        }
-        if (this.getAttribute("class").includes("clear")) {
-            var firstNumberValue = "",
-                secondNumberValue = "",
-                operator = "",
-                result = 0,
-                hasNumber = false,
-                firstNumberComplete = false,
-                lockButtons = false;
-            // back to square 1 :)
-        }
-    });
-}
+        });
+    };
+})();
