@@ -1,19 +1,124 @@
-.btn {
-	margin-bottom: 8px;
-}
+/* To do
+1. add border around buttons
+*/
 
-.panel-body > .row {
-	position: relative;
-	right: 13px;
-}
-
-.panel-body {
-	padding: 38px;
-}
-
-.jumbotron > h2 {
-
-    padding-top: 5px;
-    padding-bottom: 41px;
+/* ------------------------------
+------------- General -----------
+-------------------------------- */
+body {
+    background: #606c88; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+* {
+    border: 0;
+    font-family: 'lato';
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+.calculator {
+    margin: auto;
+    margin-top: 100px;
+    width: 300px;
+
+}
+
+/* ------------------------------
+------------- Display -----------
+-------------------------------- */
+
+.display {
+
+    background-color: #2f2f2f;
+    border: 3px solid #2f2f2f;
+    color: #fff;
+    height: 120px;
+    position: relative;
+    text-align: right;
+    width: 291px;
+}
+
+.display p {
+    bottom: 0;
+    font-size: 60px;
+    position: absolute;
+    right: 0;
+}
+
+/* ------------------------------
+------------- Buttons -----------
+-------------------------------- */
+
+.buttons {
+    margin-top: 4px;
+
+}
+
+.digit:hover {
+    background-color: #dbdbdb;
+
+}
+
+.operator:hover {
+    background-color: #f79132;
+}
+
+button {
+    border: 1;
+    font-size: 25px;
+    height: 75px;
+    margin-right: -4px;
+    margin-top: -4px;
+    outline: none;
+    text-align: center;
+    width: 75px;
+}
+
+#zero {
+    width: 149px;
+}
+
+.operator {
+    background-color: #f9800f;
+    color: #fff;
+}
+
+#AC:hover {
+    background-color: #e0dcdc
+}
+
+#AC {
+    background-color: #c3c3c3;
+
+}
+
+#plus_minus:hover {
+    background-color: #e0dcdc
+}
+
+#plus_minus {
+    background-color: #c3c3c3;
+}
+
+#percent:hover {
+    background-color: #e0dcdc
+}
+
+#percent {
+    background-color: #c3c3c3;
+}
+
+.operator {
+    height: 75px;
+    width: 75px;
+}
+
+
+
+
+
+

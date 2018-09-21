@@ -1,115 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Javascript Calculator</title>
-        <link rel="stylesheet" type="text/css" href="https://seanesteva.com/cdn/css/bootstrap-3.3.7.css">
-        <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="./style.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="header clearfix">
-                <nav>
-                    <ul class="nav nav-pills pull-right">
-                        <li role="presentation" class="active"><a href="#">Calculator</a></li>
-                        <li role="presentation"><a href="#">About</a></li>
-                        <li role="presentation"><a href="https://github.com/seangeleno">Contact</a></li>
-                    </ul>
-                </nav>
-                <h3 class="text-muted">Sean Esteva</h3>
-            </div>
-            <div class="jumbotron">
-                <h2>Javascript Calculator</h2>
-                <div class="row">
-                    <div class="col-lg-7"> <!-- calculator panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Calculator</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <button id="button-1" class="btn btn-lg btn-primary number" value="1">1</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button id="button-2" class="btn btn-lg btn-primary number" value="2">2</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button id="button-3" class="btn btn-lg btn-primary number" value="3">3</button>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button id="button-plus" class="btn btn-lg btn-danger operator" value="plus">&plus;</button>
-                                </div>
-                                </div> <!-- first row end -->
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <button id="button-4" class="btn btn-lg btn-primary number" value="4">4</button>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <button id="button-5" class="btn btn-lg btn-primary number" value="5">5</button>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <button id="button-6" class="btn btn-lg btn-primary number" value="6">6</button>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <button id="button-minus" class="btn btn-lg btn-danger operator" value="minus">&minus;</button>
-                                    </div>
-                                </div>  <!-- first row end -->
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <button id="button-7" class="btn btn-lg btn-primary number" value="7">7</button>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <button id="button-8" class="btn btn-lg btn-primary number" value="8">8</button>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <button id="button-9" class="btn btn-lg btn-primary number" value="9">9</button>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <button id="button-multiply" class="btn btn-lg btn-danger operator" value="times">&times;</button>
-                                        </div>
-                                        </div> <!-- first row end -->
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <button id="button-1" class="btn btn-lg btn-primary operator" value="0">0</button>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <button id="button-2" class="btn btn-lg btn-primary operator" value="divide">&divide;</button>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <button id="button-3" class="btn btn-lg btn-primary operator" value="3">^</button>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <button id="button-divide" class="btn btn-lg btn-success equal" value="equals">=</button>
-                                            </div>
-                                            </div> <!-- first row end -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <button class="btn btn-lg btn-warning">clear</button>
-                                                </div>
-                                            </div>
-                                            </div> <!-- /calculator body  -->
-                                        </div>
-                                        </div> <!-- /calculator panel -->
-                                        <div class="col-lg-5">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Result</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <h1 id="first-number"></h1>
-                                                    <h1 id="operator"></h1>
-                                                    <h1 id="second-number"></h1>
-                                                    <hr>
-                                                    <h1 id="result"></h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div> <!-- /jumbotron -->
-                                    <footer class="footer">
-                                        <p>&copy; Made with &lt;3 by Sean Esteva</p>
-                                    </footer>
-                                    <script type="text/javascript" src="./logic.js"></script>
-                                </body>
-                            </html>
+<head>
+    <title>Javascript Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="calculator">
+    <div class="display"><p>0</p></div>
+    <div class="buttons">
+
+        <button id="AC" onclick="allClear()">AC</button>
+        <button id="plus_minus" onclick="plusMinus('-')">+/-</button>
+        <button id="percent" onclick="percent()">%</button>
+        <button class="operator" onclick="addOperation('/')">&divide</button>
+
+        <button class="digit" onclick="addValue('7')">7</button>
+        <button class="digit" onclick="addValue('8')">8</button>
+        <button class="digit" onclick="addValue('9')">9</button>
+        <button class="operator" onclick="addOperation('*')">x</button>
+
+        <button class="digit" onclick="addValue('4')">4</button>
+        <button class="digit" onclick="addValue('5')">5</button>
+        <button class="digit" onclick="addValue('6')">6</button>
+        <button class="operator" onclick="addOperation('-')">-</button>
+
+        <button class="digit" onclick="addValue('1')">1</button>
+        <button class="digit" onclick="addValue('2')">2</button>
+        <button class="digit" onclick="addValue('3')">3</button>
+        <button class="operator" onclick="addOperation('+')">+</button>
+
+        <button class="digit" id="zero" onclick="addValue('0')">0</button>
+        <button class="digit" onclick="addDecimal('.')">.</button>
+        <button class="operator" onclick="calculate()">=</button>
+
+
+</body>
+<!--<script type="text/javascript" src="logic.js"></script>-->
+<script type="text/javascript" src="logic2.js"></script>
+</html>
