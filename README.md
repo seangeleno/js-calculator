@@ -1,6 +1,6 @@
-# Vanilla JS - Calculator
+# React JS - Calculator
 
-Made a calculator using good ol' javascript.
+React JS version of the calculator.
 
 ## Getting Started
 
@@ -11,46 +11,56 @@ There's not much to it, just calculate 2 numbers using an operator in between.
 What things you need to install the software and how to install them
 
 ```
-Give examples
+Node.js 8.12.0
+NPM 6.4.1
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
 ```
-Give the example
+npm i --save-dev
 ```
 
-And repeat
+After that try:
 
 ```
-until finished
+npm run
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+this will give you all the npm scripts at your disposal such as:
+```
+npm run start
+```
+
+that'll get you up and running (hopefully)
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Testing can be done via npm scripts:
+```
+npm run test
+```
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+Chai tests the calculator and makes sure it works properly. Easy peesy.
 
 ```
-Give an example
+function pressButtons(buttons) {
+    const value = {};
+    buttons.forEach(button => {
+        Object.assign(value, calculate(value, button));
+    });
+    // no need to distinguish between null and undefined values
+    Object.keys(value).forEach(key => {
+        if (value[key] === null) {
+            delete value[key];
+        }
+    });
+    return value;
+}
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
@@ -68,7 +78,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 

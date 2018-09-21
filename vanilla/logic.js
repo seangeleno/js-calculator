@@ -68,5 +68,5 @@
                 document.getElementById("result").innerText = "";
             }
         });
-    };
+    }
 })();
