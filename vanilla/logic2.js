@@ -74,20 +74,16 @@ function addOperation(op) {
     if (op.indexOf("*") > -1) {
         operation = 1
     }
-    ;  // Shortcut to using operations rather than using html.value.
+    // Shortcut to using operations rather than using html.value.
     if (op.indexOf("/") > -1) {
         operation = 2
     }
-    ;
     if (op.indexOf("+") > -1) {
         operation = 3
     }
-    ;
     if (op.indexOf("-") > -1) {
         operation = 4
     }
-    ;
-
     memory = current; // Store each entry in memory variable to always calculate 'current ipnut' against.
     current = ""; // Clear current so we can use it next, now that it is in memory.
 
